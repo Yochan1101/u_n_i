@@ -12,63 +12,67 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: Column(
+          child: const Column(
             children: [
-              Expanded(
-                child: Container(
-                  child: Column(
-                    children: [
-                      const Text(
-                        'U&I',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'parisienne',
-                          fontSize: 80,
-                        ),
-                      ),
-                      const Text(
-                        "우리 처음 만날",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontFamily: 'sunflower'),
-                      ),
-                      const Text(
-                        '2024.03.04',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: 'sunflower'),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        iconSize: 60,
-                        color: Colors.red,
-                        icon: const Icon(
-                          Icons.favorite,
-                        ),
-                      ),
-                      const Text(
-                        'D+1',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 50,
-                          fontFamily: 'sunflower',
-                          fontWeight: FontWeight.w700,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  child: Image.asset('asset/img/middle_image.png'),
-                ),
-              ),
+              _Top(),
+              _Bottom(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _Top extends StatelessWidget {
+  const _Top({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Expanded(
+      child: Container(
+        child: Column(
+          children: [
+            Text(
+              'U&I',
+              style: textTheme.displayLarge,
+            ),
+            Text(
+              "우리 처음 만날",
+              style: textTheme.bodyLarge,
+            ),
+            Text(
+              '2024.03.04',
+              style: textTheme.bodyMedium,
+            ),
+            IconButton(
+              onPressed: () {},
+              iconSize: 60,
+              color: Colors.red,
+              icon: const Icon(
+                Icons.favorite,
+              ),
+            ),
+            Text(
+              'D+1',
+              style: textTheme.displayMedium,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Bottom extends StatelessWidget {
+  const _Bottom({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        child: Image.asset('asset/img/middle_image.png'),
       ),
     );
   }

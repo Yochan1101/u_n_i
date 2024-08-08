@@ -52,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   selectedDate = date;
                 });
               },
+              initialDateTime: selectedDate, // 초기 선택 날짜 설정
+              maximumDate: DateTime.now(), // 오늘 날짜 이상으로 선택 불가
             ),
           ),
         );

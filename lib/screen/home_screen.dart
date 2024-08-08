@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -47,7 +48,28 @@ class _Top extends StatelessWidget {
               style: textTheme.bodyMedium,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showCupertinoDialog(
+                  context: context,
+                  barrierDismissible: true, // dialog 바깥을 터치하면 닫힘
+                  builder: (BuildContext context) {
+                    return Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        color: Colors.white,
+                        height: 300,
+                        child: CupertinoDatePicker(
+                          mode: CupertinoDatePickerMode.date,
+                          dateOrder: DatePickerDateOrder.ymd,
+                          onDateTimeChanged: (DateTime date) {
+                            print(date);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
               iconSize: 60,
               color: Colors.red,
               icon: const Icon(
